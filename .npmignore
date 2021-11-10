@@ -2,7 +2,6 @@
 *.log
 coverage
 node_modules
-src
 test
 .babelrc
 .eslintrc
