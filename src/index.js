@@ -8,6 +8,8 @@ const urls = require('./url');
 
 const constant = require('./constant');
 
+console.log('cas log');
+
 const defaultOptions = {
   protocol: 'https',
   path: '/cas',
@@ -95,6 +97,7 @@ class CasClient {
         'Content-Type': content_type
       }
     }).then(function (response) {
+      console.log(response);
       response.text().then(function (text) {
         switch (version) {
           case constant.CAS_VERSION_2_0:
