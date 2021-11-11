@@ -34,6 +34,7 @@ class CasClient {
     this.version = options.version || defaultOptions.version;
     this.validation_proxy_path = options.validation_proxy_path || defaultOptions.validation_proxy_path;
     this.redirectUrl = util.getCurrentUrl();
+    console.log('cas-test');
   }
 
   auth(gateway = false) {
@@ -115,24 +116,24 @@ class CasClient {
                   // const ticket = urlParams.get('ticket');
                   console.log('ticket' + ticket);
 
-                  var xhttp = new XMLHttpRequest();
-                  xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        console.log(this.response);
-                      xmlRead(this);
-                    }
-                    else{
-                      console.log(this.response);
-                    }
-                  };
+//                   var xhttp = new XMLHttpRequest();
+//                   xhttp.onreadystatechange = function() {
+//                     if (this.readyState == 4 && this.status == 200) {
+//                         console.log(this.response);
+//                       xmlRead(this);
+//                     }
+//                     else{
+//                       console.log(this.response);
+//                     }
+//                   };
               
-                  xhttp.open("GET", "https://www.rowa-secure.com/sso/serviceValidate?service=https%3A%2F%2Ffrenchpoteligeo-staging.azurewebsites.net%2Fpoteligeo&ticket=" + ticket, true);
-                                  //    https://www.rowa-secure.com/sso/serviceValidate?service=https%3A%2F%2Ffrenchpoteligeo-staging.azurewebsites.net%2Fpoteligeo&ticket=ST-2927-C2ucqxxxVGEFkfBinjgC-www.rowa-secure.com
+//                   xhttp.open("GET", "https://www.rowa-secure.com/sso/serviceValidate?service=https%3A%2F%2Ffrenchpoteligeo-staging.azurewebsites.net%2Fpoteligeo&ticket=" + ticket, true);
+//                                   //    https://www.rowa-secure.com/sso/serviceValidate?service=https%3A%2F%2Ffrenchpoteligeo-staging.azurewebsites.net%2Fpoteligeo&ticket=ST-2927-C2ucqxxxVGEFkfBinjgC-www.rowa-secure.com
               
-                  xhttp.send();
-                  console.log(xhttp);
-                  xmlRead(xhttp);
-                }
+//                   xhttp.send();
+//                   console.log(xhttp);
+//                   xmlRead(xhttp);
+//                 }
               } else {
                 let failures = response['cas:authenticationFailure'];
 
@@ -212,14 +213,14 @@ class CasClient {
 
 }
 
-function xmlRead(xml) {
-  var x, i, xmlDoc, txt;
-  xmlDoc = xml.responseXML;
-  txt = "";
-  console.log('function xmlRead')
-  console.log(xmlDoc);
+// function xmlRead(xml) {
+//   var x, i, xmlDoc, txt;
+//   xmlDoc = xml.responseXML;
+//   txt = "";
+//   console.log('function xmlRead')
+//   console.log(xmlDoc);
 
-}
+// }
 
 
 export default CasClient;
