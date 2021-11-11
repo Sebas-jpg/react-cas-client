@@ -2,14 +2,13 @@ const fetch = require('node-fetch');
 
 const xml2js = require('xml2js');
 
-const util = require('./util');
+const util = require('react-cas-client/lib/util');
 
-const urls = require('./url');
+const urls = require('react-cas-client/lib/url');
 
-const constant = require('./constant');
+const constant = require('react-cas-client/lib/constant');
 
-console.log('cas log');
-
+console.log('1');
 const defaultOptions = {
   protocol: 'https',
   path: '/cas',
@@ -40,6 +39,7 @@ class CasClient {
   }
 
   auth(gateway = false) {
+    console.log('1');
     return new Promise((resolve, reject) => {
       /**
        * Save ticket to sessionStorage if exists
@@ -97,22 +97,25 @@ class CasClient {
         'Content-Type': content_type
       }
     }).then(function (response) {
-      console.log(response);
+      console.log('1');
       response.text().then(function (text) {
+        console.log('1');
         switch (version) {
           case constant.CAS_VERSION_2_0:
             xml2js.parseStringPromise(text).then(function (result) {
               let response = result['cas:serviceResponse'];
+              console.log('1');
 
               if (response['cas:authenticationSuccess']) {
+                console.log('1');
                 let successes = response['cas:authenticationSuccess'];
 
                 if (successes.length) {
                   let user = successes[0]['cas:user'][0];
-
+                  console.log('1');
                   this._handleSuccessValdiate(resolve, user);
 
-
+                  console.log('3');
                   // console.log('urlparams');
                   // const urlParams = new URLSearchParams(window.location.search);
                   // const service = queryParams.get('service');
