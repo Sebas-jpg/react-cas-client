@@ -133,7 +133,7 @@ class CasClient {
 //                   xhttp.send();
 //                   console.log(xhttp);
 //                   xmlRead(xhttp);
-//                 }
+                }
               } else {
                 let failures = response['cas:authenticationFailure'];
 
